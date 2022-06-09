@@ -31,8 +31,6 @@ import java.util.Locale;
 import net.kyori.adventure.audience.MessageType;
 import net.kyori.adventure.identity.Identity;
 import net.kyori.adventure.permission.PermissionChecker;
-import net.kyori.adventure.platform.facet.FacetPointers;
-import net.kyori.adventure.platform.facet.FacetPointers.Type;
 import net.kyori.adventure.pointer.Pointers;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
@@ -59,7 +57,7 @@ public final class VelocityConsole extends SimpleTerminalConsole implements Cons
           .withDynamic(PermissionChecker.POINTER, this::getPermissionChecker)
           .withDynamic(Identity.LOCALE, () -> ClosestLocaleMatcher.INSTANCE
               .lookupClosest(Locale.getDefault()))
-          .withStatic(FacetPointers.TYPE, Type.CONSOLE)
+          //.withStatic(FacetPointers.TYPE, Type.CONSOLE)
           .build();
 
   public VelocityConsole(VelocityServer server) {

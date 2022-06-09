@@ -91,8 +91,6 @@ import net.kyori.adventure.audience.MessageType;
 import net.kyori.adventure.bossbar.BossBar;
 import net.kyori.adventure.identity.Identity;
 import net.kyori.adventure.permission.PermissionChecker;
-import net.kyori.adventure.platform.facet.FacetPointers;
-import net.kyori.adventure.platform.facet.FacetPointers.Type;
 import net.kyori.adventure.pointer.Pointers;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.KeybindComponent;
@@ -158,7 +156,7 @@ public class ConnectedPlayer implements MinecraftConnectionAssociation, Player, 
           .withDynamic(Identity.DISPLAY_NAME, () -> Component.text(this.getUsername()))
           .withDynamic(Identity.LOCALE, this::getEffectiveLocale)
           .withStatic(PermissionChecker.POINTER, getPermissionChecker())
-          .withStatic(FacetPointers.TYPE, Type.PLAYER)
+          //.withStatic(FacetPointers.TYPE, Type.PLAYER)
           .build();
   private @Nullable String clientBrand;
   private @Nullable Locale effectiveLocale;

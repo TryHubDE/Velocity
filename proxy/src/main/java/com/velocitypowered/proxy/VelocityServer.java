@@ -207,8 +207,7 @@ public class VelocityServer implements ProxyServer, ForwardingAudience {
     // Initialize commands first
     commandManager.register("velocity", new VelocityCommand(this));
     commandManager.register("server", new ServerCommand(this));
-    commandManager.register("shutdown", ShutdownCommand.command(this),
-        "end", "stop");
+    commandManager.register("shutdown", new ShutdownCommand(this),"end");
     new GlistCommand(this).register();
 
     this.doStartupConfigLoad();
@@ -298,7 +297,7 @@ public class VelocityServer implements ProxyServer, ForwardingAudience {
       logger.error("Encountered an I/O error whilst loading translations", e);
       return;
     }
-    GlobalTranslator.translator().addSource(translationRegistry);
+    GlobalTranslator.get().addSource(translationRegistry);
   }
 
   @SuppressFBWarnings("DM_EXIT")

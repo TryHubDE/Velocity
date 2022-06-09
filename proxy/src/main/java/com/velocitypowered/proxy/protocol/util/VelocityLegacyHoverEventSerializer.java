@@ -66,7 +66,7 @@ public class VelocityLegacyHoverEventSerializer implements LegacyHoverEventSeria
     }
 
     byte count = item.getByte("Count", (byte) 1);
-    return ShowItem.of(key, count, BinaryTagHolder.binaryTagHolder(snbt));
+    return ShowItem.of(key, count, BinaryTagHolder.of(snbt));
   }
 
   @Override
